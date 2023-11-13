@@ -1,53 +1,77 @@
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MtecDevs.ViewModels;
 
 namespace MtecDevs.Controllers;
 
-    public class AccountController : Controller
+public class AccountController : Controller
+{
+    private readonly ILogger<AccountController> _logger;
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+
+    public AccountController(
+        ILogger<AccountController> logger,
+        SignInManager<IdentityUser> signInManager,
+        UserManager<IdentityUser> userManager)
     {
-        private readonly ILogger<AccountController> _logger;
-        private readonly SignInManager<IdentityUser> _sigInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        _logger = logger;
+        _signInManager = signInManager;
+        _userManager = userManager;
+    }
 
-        public AccountController(
-            ILogger<AccountController> logger,
-            SignInManager<IdentityUser> sigInManager,
-            UserManager<IdentityUser> userManager)
-            {
-                _logger = logger;
-                _sigInManager = sigInManager;
-                _userManager = userManager;
-            }
-        
-        public AccountController(ILogger<AccountController> logger)
-        {
-            _logger = logger;
-        }
-       [HttpGet]
-        public IActionResult Login(string returnUrl)
-        {
-           LoginVM loginVM = new(){
+    [HttpGet]
+    public IActionResult Login(string returnUrl)
+    {
+        LoginVM loginVM = new() {
             UrlRetorno = returnUrl ?? Url.Content("~/")
-           };
-            return View(loginVM);
-        }
+        };
+        return View(loginVM);
+    }
 
-       [HttpPost]
-       [ValidateAntiForgeryToken]
-
-       public async Task<IActionResult> login(LoginVM login)
-       {
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(LoginVM login)
+    {
         if (ModelState.IsValid)
         {
+            // Verifico o login
+            string userName = login.Email;
+            if (IsValidEmail(login.Email))
+            {
+                var user = await _userManager.FindByEmailAsync(login.Email);
+                if (user != null)
+                {
+                    userName = user.UserName;
+                }
+            }
+            var result = await _signInManager.PasswordSignInAsync(
+                userName, login.Senha, login.Lembrar, lockoutOnFailure: true
+            );
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
+                return LocalRedirect(login.UrlRetorno);
+            }
+
+            if (result.IsLockedOut)
+            {
+                _logger.LogWarning($"Usuário {login.Email} foi bloqueado");
+                return RedirectToAction("lockout");
+            }
+
+            ModelState.AddModelError(string.Empty, "usuário e/ou senha Inaválido!!");
 
         }
         return View(login);
-       }  
+    }
 
-       private  static bool IsValidEmail(string email)
-       {
+    
+    private static bool IsValidEmail(string email)
+    {
         try
         {
             MailAddress m = new(email);
@@ -57,5 +81,5 @@ namespace MtecDevs.Controllers;
         {
             return false;
         }
-       }
+    }
 }
