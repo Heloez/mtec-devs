@@ -1,5 +1,6 @@
 using System.Net.Mail;
 using System.Runtime.CompilerServices;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MtecDevs.ViewModels;
@@ -68,6 +69,14 @@ public class AccountController : Controller
         }
         return View(login);
     }
+   [HttpPost]
+   [ValidateAntiForgeryToken]
+  public async Task<IActionResult> Logout()
+  {
+    _logger.LogInformation($"Usuário {ClaimTypes.Email} fez Logoff");
+    await _signInManager.SignOutAsync();
+    return RedirectToAction("index", "Home");
+  }  
 
     
     private static bool IsValidEmail(string email)
