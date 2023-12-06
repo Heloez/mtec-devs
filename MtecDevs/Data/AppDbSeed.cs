@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MtecDevs.Models;
-namespace MtecDevs.Data;
 
-public class NewBaseType
-{
-}
+namespace MtecDevs.Data;
 
 public class AppDbSeed
 {
@@ -36,8 +33,9 @@ public class AppDbSeed
         };
         builder.Entity<TipoDev>().HasData(tipoDevs);
         #endregion
+
         #region Popular dos dados Perfis de Usuário
-        List<IdentityRole> perfis = new() {
+        List<IdentityRole> roles = new() {
             new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Administrador",
@@ -54,49 +52,53 @@ public class AppDbSeed
                 NormalizedName = "USUÁRIO"
             }
         };
-        builder.Entity<IdentityRole>().HasData(perfis);
+        builder.Entity<IdentityRole>().HasData(roles);
         #endregion
-        #region Popular Dados de Usuário
-        // Lista de IdentityUser
+
+        #region Popular dos dados Usuários
+        // Cria a lista de contas
         List<IdentityUser> users = new() {
             new IdentityUser() {
                 Id = Guid.NewGuid().ToString(),
-                UserName = "ArthurBuzacarini",
-                NormalizedUserName = "ARTHURBUZACARINI",
-                Email = "guizinho.zaza14@gmail.com", 
-                NormalizedEmail = "GUIZINHO.ZAZA14@GMAIL.COM",
-                EmailConfirmed = true,
-                LockoutEnabled = true
+                Email = "brunobrunelli4@gmail.com",
+                NormalizedEmail = "BRUNOBRUNELLI4@GMAIL.COM",
+                UserName = "Bruno Eduardo",
+                NormalizedUserName = "BRUNOEDUARDO",
+                LockoutEnabled = false,
+                PhoneNumber = "14991994546",
+                PhoneNumberConfirmed = true,
+                EmailConfirmed = true
             }
         };
-        //Criptografar a senha do IdentityUser
-        foreach (var user in users)
-        {
-            PasswordHasher<IdentityUser> password = new();
-            user.PasswordHash = password.HashPassword(user, "@Etec123");
-        } 
+        // Criptografar as senhas
+        foreach (var user in users) {
+            PasswordHasher<IdentityUser> pass = new();
+            user.PasswordHash = pass.HashPassword(user, "@Etec123");
+        }
+        // Adiciona a conta no banco
         builder.Entity<IdentityUser>().HasData(users);
 
-        //Criar o usuário
-        List<Usuario> usuarios = new(){
+        // Cria a conta pessoal do usuário
+        List<Usuario> usuarios = new() {
             new Usuario() {
                 UserId = users[0].Id,
-                Nome = "Arthur Buzacarini",
-                DataNascimento = DateTime.Parse("21/09/2006"),
-                Foto = "/img/usuarios/arthur.png",
-                TipoDevId = 2
+                Nome = "Rafael Roberto de Oliveira",
+                DataNascimento = DateTime.Parse("05/08/1981"),
+                TipoDevId = 1,
+                Foto = "/img/usuarios/avatar.png"
             }
         };
         builder.Entity<Usuario>().HasData(usuarios);
 
-        //Definir o perfil de cada usuário criado
+        // Associar o usuário ao tipo de perfil
         List<IdentityUserRole<string>> userRoles = new() {
             new IdentityUserRole<string>() {
                 UserId = users[0].Id,
-                RoleId = perfis[0].Id
+                RoleId = roles[0].Id
             }
         };
         builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
+
     }
 }

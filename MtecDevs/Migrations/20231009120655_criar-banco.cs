@@ -244,15 +244,15 @@ namespace MtecDevs.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4ceed5d1-c5ee-4755-9a41-746b6c577df6", "95c94644-86a1-4f20-9b08-13aad18a2ab5", "Usuário", "USUÁRIO" },
-                    { "852266fa-07cb-49f0-be5d-9062a5719cf2", "ac14a566-8a37-4b1f-8f7f-6f704aabf879", "Administrador", "ADMINISTRADOR" },
-                    { "93cb7130-aa18-455f-8ec5-15c27c22711b", "9dd059a5-a206-4fb9-a670-c182a565217c", "Moderador", "MODERADOR" }
+                    { "390f40a5-970a-4edf-be9a-58b16c165454", "0572c268-3b27-4325-9a19-49f220eeb28b", "Moderador", "MODERADOR" },
+                    { "b6b8a562-756f-46a4-ac48-cd94f5c2621f", "17b5290b-4b51-45c2-a10e-a20edd565207", "Usuário", "USUÁRIO" },
+                    { "e9d33c49-ae73-400c-8aae-a075ead2e3fb", "5eec9e69-a253-4b00-a10b-ab4af6ea1cce", "Administrador", "ADMINISTRADOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "81799c58-f40a-45a0-8232-912f5aa68d53", 0, "7d7dadd1-0ee6-43cc-99db-299f90124c64", "guizinho.zaza14@gmail.com", true, true, null, "GUIZINHO.ZAZA14@GMAIL.COM", "ARTHURBUZACARINI", "AQAAAAEAACcQAAAAEJ/ZpQyVSKa2ht7nkkgwNdpt5+OB3IJ7DWUBPY15zSlo9SoEds68MHPBg+QLBZY2iQ==", null, false, "83c05add-d894-40ab-bd63-edf0b2391ff1", false, "ArthurBuzacarini" });
+                values: new object[] { "15b20087-e8f6-4e5d-826f-8afce4acc33c", 0, "cef3a2e9-909d-4491-b0f7-951119c9aac8", "arthurcamargoetec@gmail.com", true, true, null, "ARTHURCAMARGOETEC@GMAIL.COM", "ZAZA", "AQAAAAEAACcQAAAAEH/1i7th4IXSIvPLHEArjPhCefIARx4P+DZGbWFd56mjXqaNDB0511XFk9sRZ1+1Rg==", null, false, "271e5be3-98bd-42c4-884b-45a6f2130679", false, "Zaza" });
 
             migrationBuilder.InsertData(
                 table: "TipoDev",
@@ -269,12 +269,12 @@ namespace MtecDevs.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "852266fa-07cb-49f0-be5d-9062a5719cf2", "81799c58-f40a-45a0-8232-912f5aa68d53" });
+                values: new object[] { "e9d33c49-ae73-400c-8aae-a075ead2e3fb", "15b20087-e8f6-4e5d-826f-8afce4acc33c" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UserId", "DataNascimento", "Foto", "Nome", "TipoDevId" },
-                values: new object[] { "81799c58-f40a-45a0-8232-912f5aa68d53", new DateTime(2006, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/usuarios/arthur.png", "Arthur Buzacarini", (byte)2 });
+                values: new object[] { "15b20087-e8f6-4e5d-826f-8afce4acc33c", new DateTime(2006, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/usuarios/gustavo.jpg", "Gustavo Santos Buzacarini", (byte)2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -6,7 +6,7 @@ namespace MtecDevs.Data;
 
 public class AppDbContext : IdentityDbContext
 {
-    public AppDbContext(DbContextOptions opcoes) : base(opcoes)
+    public AppDbContext(DbContextOptions<AppDbContext> opcoes) : base(opcoes)
     {
     }
 
@@ -17,7 +17,7 @@ public class AppDbContext : IdentityDbContext
     {
         base.OnModelCreating(builder);
         AppDbSeed appDbSeed = new(builder);
-        
-    }
 
+        // FluentAPI
+    }
 }

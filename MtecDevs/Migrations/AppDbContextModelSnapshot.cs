@@ -47,22 +47,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "852266fa-07cb-49f0-be5d-9062a5719cf2",
-                            ConcurrencyStamp = "ac14a566-8a37-4b1f-8f7f-6f704aabf879",
+                            Id = "4a129659-78f3-4247-9a3f-f6158311e886",
+                            ConcurrencyStamp = "5ac90406-e115-49d4-a0ed-15a3c1ce5e0d",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "93cb7130-aa18-455f-8ec5-15c27c22711b",
-                            ConcurrencyStamp = "9dd059a5-a206-4fb9-a670-c182a565217c",
+                            Id = "27570ef6-ab7f-41d2-89e7-b7550da3ee05",
+                            ConcurrencyStamp = "2bf1e89b-0dd6-40a9-9064-2c9484a27799",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "4ceed5d1-c5ee-4755-9a41-746b6c577df6",
-                            ConcurrencyStamp = "95c94644-86a1-4f20-9b08-13aad18a2ab5",
+                            Id = "8fe1f8cd-9765-41b7-9d88-293536233f4d",
+                            ConcurrencyStamp = "fa57c86d-3e06-457e-a5f9-a947b2a42378",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -157,19 +157,20 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "81799c58-f40a-45a0-8232-912f5aa68d53",
+                            Id = "a37bbf0d-03d1-47ad-983f-2cd22f534a4c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7d7dadd1-0ee6-43cc-99db-299f90124c64",
-                            Email = "guizinho.zaza14@gmail.com",
+                            ConcurrencyStamp = "f613844e-13c5-4402-962c-bd873138ac4f",
+                            Email = "gallojunior@gmail.com",
                             EmailConfirmed = true,
-                            LockoutEnabled = true,
-                            NormalizedEmail = "GUIZINHO.ZAZA14@GMAIL.COM",
-                            NormalizedUserName = "ARTHURBUZACARINI",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ/ZpQyVSKa2ht7nkkgwNdpt5+OB3IJ7DWUBPY15zSlo9SoEds68MHPBg+QLBZY2iQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "83c05add-d894-40ab-bd63-edf0b2391ff1",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "GALLOJUNIOR@GMAIL.COM",
+                            NormalizedUserName = "GALLOJUNIOR",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPBxEdXfsh9Rc5chaqwl/2xg/wMnDzQBFKY3OM/VUvzpbAKOkiMk2WgpH+2y556wmw==",
+                            PhoneNumber = "14912345678",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "320bf67e-35ca-49f0-ac02-1c2eac9c1514",
                             TwoFactorEnabled = false,
-                            UserName = "ArthurBuzacarini"
+                            UserName = "GalloJunior"
                         });
                 });
 
@@ -235,8 +236,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "81799c58-f40a-45a0-8232-912f5aa68d53",
-                            RoleId = "852266fa-07cb-49f0-be5d-9062a5719cf2"
+                            UserId = "a37bbf0d-03d1-47ad-983f-2cd22f534a4c",
+                            RoleId = "4a129659-78f3-4247-9a3f-f6158311e886"
                         });
                 });
 
@@ -325,16 +326,16 @@ namespace MtecDevs.Migrations
 
                     b.HasIndex("TipoDevId");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuario");
 
                     b.HasData(
                         new
                         {
-                            UserId = "81799c58-f40a-45a0-8232-912f5aa68d53",
-                            DataNascimento = new DateTime(2006, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Foto = "/img/usuarios/arthur.png",
-                            Nome = "Arthur Buzacarini",
-                            TipoDevId = (byte)2
+                            UserId = "a37bbf0d-03d1-47ad-983f-2cd22f534a4c",
+                            DataNascimento = new DateTime(1981, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "/img/usuarios/avatar.png",
+                            Nome = "José Antonio Gallo Junior",
+                            TipoDevId = (byte)1
                         });
                 });
 

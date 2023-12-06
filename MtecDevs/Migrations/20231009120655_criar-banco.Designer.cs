@@ -11,7 +11,7 @@ using MtecDevs.Data;
 namespace MtecDevs.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231009120655_criar-banco")]
+    [Migration("20231009115948_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,22 +49,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "852266fa-07cb-49f0-be5d-9062a5719cf2",
-                            ConcurrencyStamp = "ac14a566-8a37-4b1f-8f7f-6f704aabf879",
+                            Id = "e9d33c49-ae73-400c-8aae-a075ead2e3fb",
+                            ConcurrencyStamp = "5eec9e69-a253-4b00-a10b-ab4af6ea1cce",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "93cb7130-aa18-455f-8ec5-15c27c22711b",
-                            ConcurrencyStamp = "9dd059a5-a206-4fb9-a670-c182a565217c",
+                            Id = "390f40a5-970a-4edf-be9a-58b16c165454",
+                            ConcurrencyStamp = "0572c268-3b27-4325-9a19-49f220eeb28b",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "4ceed5d1-c5ee-4755-9a41-746b6c577df6",
-                            ConcurrencyStamp = "95c94644-86a1-4f20-9b08-13aad18a2ab5",
+                            Id = "b6b8a562-756f-46a4-ac48-cd94f5c2621f",
+                            ConcurrencyStamp = "17b5290b-4b51-45c2-a10e-a20edd565207",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -159,19 +159,19 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "81799c58-f40a-45a0-8232-912f5aa68d53",
+                            Id = "15b20087-e8f6-4e5d-826f-8afce4acc33c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7d7dadd1-0ee6-43cc-99db-299f90124c64",
-                            Email = "guizinho.zaza14@gmail.com",
+                            ConcurrencyStamp = "cef3a2e9-909d-4491-b0f7-951119c9aac8",
+                            Email = "arthurcamargoetec@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = true,
-                            NormalizedEmail = "GUIZINHO.ZAZA14@GMAIL.COM",
-                            NormalizedUserName = "ARTHURBUZACARINI",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ/ZpQyVSKa2ht7nkkgwNdpt5+OB3IJ7DWUBPY15zSlo9SoEds68MHPBg+QLBZY2iQ==",
+                            NormalizedEmail = "ARTHURCAMARGOETEC@GMAIL.COM",
+                            NormalizedUserName = "ZAZA",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH/1i7th4IXSIvPLHEArjPhCefIARx4P+DZGbWFd56mjXqaNDB0511XFk9sRZ1+1Rg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "83c05add-d894-40ab-bd63-edf0b2391ff1",
+                            SecurityStamp = "271e5be3-98bd-42c4-884b-45a6f2130679",
                             TwoFactorEnabled = false,
-                            UserName = "ArthurBuzacarini"
+                            UserName = "Zaza"
                         });
                 });
 
@@ -237,8 +237,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "81799c58-f40a-45a0-8232-912f5aa68d53",
-                            RoleId = "852266fa-07cb-49f0-be5d-9062a5719cf2"
+                            UserId = "15b20087-e8f6-4e5d-826f-8afce4acc33c",
+                            RoleId = "e9d33c49-ae73-400c-8aae-a075ead2e3fb"
                         });
                 });
 
@@ -332,10 +332,10 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "81799c58-f40a-45a0-8232-912f5aa68d53",
-                            DataNascimento = new DateTime(2006, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Foto = "/img/usuarios/arthur.png",
-                            Nome = "Arthur Buzacarini",
+                            UserId = "15b20087-e8f6-4e5d-826f-8afce4acc33c",
+                            DataNascimento = new DateTime(2006, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "/img/usuarios/gustavo.jpg",
+                            Nome = "Gustavo Santos Buzacarini",
                             TipoDevId = (byte)2
                         });
                 });
